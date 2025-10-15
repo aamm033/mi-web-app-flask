@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block custom_title %}Página Principal{% endblock %}
+
+{% block app_content %}
+    <div class="jumbotron text-center bg-light p-5 my-5 rounded shadow-sm">
+        <h1 class="display-4">¡Bienvenido a mi Web de Aprendizaje!</h1>
+        <p class="lead mt-4">¡Esta página está siendo generada por Python usando Flask!</p>
+        
+        <hr class="my-4">
+
+        
+        {% if current_user.is_authenticated %}
+            <p class="text-success">
+                Hola, **{{ current_user.username }}**. Usa la barra de navegación para interactuar.
+            </p>
+        {% else %}
+            <p>
+                Por favor, **<a href="{{ url_for('auth.login') }}">inicia sesión</a>** o **<a href="{{ url_for('auth.registro') }}">regístrate</a>** para interactuar.
+            </p>
+        {% endif %}
+
+    </div>
+    
+    <p class="text-center">
+    <a href="{{ url_for('main.acerca') }}" class="btn btn-outline-secondary">About</a>
+</p>
+{% endblock app_content %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

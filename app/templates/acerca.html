@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block custom_title %}Acerca de Mí{% endblock %}
+
+{% block app_content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            
+            <h1 class="mb-4">Acerca del Desarrollador</h1>
+            
+            <div class="card shadow-sm p-4 mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">Mi Trayectoria en Python y Flask</h2>
+                    <p class="card-text">
+                        Esta aplicación fue construida como un proyecto de aprendizaje y refactorización. Inicié con una estructura simple y la transformé en una aplicación robusta utilizando las mejores prácticas de Flask, incluyendo:
+                    </p>
+                    <ul>
+                        <li>El **Patrón de Fábrica** para la inicialización.</li>
+                        <li>**Blueprints** para la modularidad (`main`, `auth`).</li>
+                        <li>**Flask-Login** para la autenticación y **Autorización** (Roles de Administrador).</li>
+                        <li>**Flask-Migrate** para la gestión de la base de datos.</li>
+                        <li>**Flask-Bootstrap4** para una interfaz moderna y *responsive*.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card shadow-sm p-4">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">Información Personal</h2>
+                    <p class="card-text">
+
+                        <strong>Nombre:</strong> Aaron Martinez
+                        <br>
+                        <strong>Mi Pasión:</strong> Me encanta la automatización y estoy aprendiendo Python.
+                        <br>
+                        <strong>Contacto:</strong> Redes Sociales:
+                        <a href="https://linkedin.com/in/aamm033" target="_blank" class="btn btn-sm btn-info">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/aamm033" target="_blank" class="btn btn-sm btn-info">
+                        <i class="fab fa-github"></i> GitHub
+                        </a>
+
+                        </p>
+                <a href="{{ url_for('main.inicio') }}" class="btn btn-secondary mt-3">Volver a Inicio</a>
+            </div>
+          </div>
+            
+        </div>
+    </div>
+{% endblock app_content %}

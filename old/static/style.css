@@ -1,0 +1,114 @@
+/* static/style.css */
+
+body {
+    background-color: #f0f0f0; /* Un gris claro */
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 40px;
+}
+
+h1 {
+    color: #007bff; /* Azul brillante */
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+p a {
+    color: #28a745; /* Verde */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton-contacto {
+    /* Hace que el enlace se comporte como un bloque para poder darle padding */
+    display: inline-block;
+
+    /* Apariencia de botón */
+    padding: 10px 15px;
+    background-color: #007bff; /* Un color azul */
+    color: white; /* Letras blancas */
+    text-align: center;
+
+    /* Limpieza y estética */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Muestra el cursor de mano */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+}
+
+/* Estilo al pasar el ratón (hover) */
+.boton-contacto:hover {
+    background-color: #0056b3; /* Un azul más oscuro */
+}
+
+.boton-ver-mensajes {
+    /* Hereda las propiedades de un botón para que se vea igual */
+    display: inline-block;
+    padding: 10px 15px;
+
+    /* Cambia solo los colores */
+    background-color: #ffc107; /* Color amarillo/naranja de advertencia */
+    color: #343a40; /* Texto oscuro para contrastar con el fondo claro */
+
+    /* Mantiene las propiedades del botón base */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-ver-mensajes:hover {
+    background-color: #e0a800; /* Amarillo más oscuro al pasar el ratón */
+}
+
+/* Clase base para TODOS los botones de acción (<a> y <button>) */
+.accion-btn {
+    /* Resetea la apariencia por defecto de <button> y <a> */
+    display: inline-block;
+    padding: 8px 12px; /* Controla el tamaño (relleno) */
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.2;
+    border: 1px solid transparent; /* IMPORTANTE: Asegura el mismo tamaño de borde para <button> y <a> */
+    margin: 0; /* IMPORTANTE: Resetea el margen por defecto del botón */
+    -webkit-appearance: none; /* Resetea estilos de Chrome/Safari */
+    -moz-appearance: none;    /* Resetea estilos de Firefox */
+    appearance: none;         /* Resetea estilos generales */
+    transition: background-color 0.2s;
+}
+
+/* Aplicar la clase accion-btn al botón de eliminar para resetear estilos */
+button.accion-btn {
+    /* Asegura que el botón se ajuste al tamaño del enlace <a>
+       al quitarle los estilos de borde y fondo por defecto.
+    */
+    border: 1px solid transparent;
+    background: none;
+}
+
+
+/* Estilo específico para Eliminar (Rojo) */
+.btn-eliminar {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    /* ... otros estilos ... */
+}
+.btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+/* Estilo específico para Editar (Verde) */
+.btn-editar {
+    background-color: #28a745; /* Verde */
+    color: white;
+    /* ... otros estilos ... */
+}
+.btn-editar:hover {
+    background-color: #218838;
+}

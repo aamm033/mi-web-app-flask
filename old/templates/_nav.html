@@ -1,0 +1,18 @@
+<nav style="margin-bottom: 20px;">
+    <a href="{{ url_for('inicio') }}" class="boton-contacto">Inicio</a>
+    <a href="{{ url_for('contacto') }}" class="boton-contacto">Enviar Mensaje</a>
+
+    {% if current_user.is_authenticated %}
+        <span style="margin-left: 20px;">
+            Hola, **{{ current_user.username }}**
+        </span>
+
+        <a href="{{ url_for('ver_mensajes') }}" class="boton-ver-mensajes">Ver Mensajes</a>
+
+        <a href="{{ url_for('logout') }}" class="boton-secundario" style="background-color: #f8d7da; color: #721c24;">Cerrar Sesión</a>
+    {% else %}
+        <a href="{{ url_for('registro') }}" class="boton-secundario">Registro</a>
+
+        <a href="{{ url_for('login') }}" class="boton-secundario" style="background-color: #007bff; color: white;">Iniciar Sesión</a>
+    {% endif %}
+</nav>

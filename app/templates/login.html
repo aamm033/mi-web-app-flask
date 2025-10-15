@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block custom_title %}Iniciar Sesión{% endblock %}
+
+{% block app_content %}
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Iniciar Sesión</h2>
+
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    {{ form.username.label(class="form-label") }}
+                    {{ form.username(class="form-control", placeholder="Tu nombre de usuario") }}
+                    {% for error in form.username.errors %}
+                        <div class="alert alert-danger mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.password.label(class="form-label") }}
+                    {{ form.password(class="form-control", placeholder="Tu contraseña") }}
+                    {% for error in form.password.errors %}
+                        <div class="alert alert-danger mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="mb-3 form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+
+                {{ form.submit(class="btn btn-primary") }}
+
+            </form>
+
+            <p class="mt-3 text-center">
+                ¿Nuevo usuario? <a href="{{ url_for('auth.registro') }}">Regístrate</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

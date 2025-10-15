@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block custom_title %}Enviar Mensaje{% endblock %}
+
+{% block app_content %}
+    <div class="row">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h2 class="mb-4">Envíanos un Mensaje</h2>
+
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    {{ form.nombre.label(class="form-label") }}
+                    {{ form.nombre(class="form-control", placeholder="Tu Nombre Completo") }}
+                    {% for error in form.nombre.errors %}
+                        <div class="alert alert-danger mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control", placeholder="ejemplo@correo.com") }}
+                    {% for error in form.email.errors %}
+                        <div class="alert alert-danger mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.mensaje.label(class="form-label") }}
+                    {{ form.mensaje(class="form-control", rows=5, placeholder="Escribe tu mensaje aquí...") }}
+                    {% for error in form.mensaje.errors %}
+                        <div class="alert alert-danger mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                {{ form.submit(class="btn btn-primary") }}
+
+            </form>
+        </div>
+    </div>
+{% endblock app_content %}

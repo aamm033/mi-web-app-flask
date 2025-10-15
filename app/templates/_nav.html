@@ -1,0 +1,20 @@
+<a class="navbar-brand mr-4" href="{{ url_for('main.inicio') }}">Inicio</a>
+<a class="nav-link text-white" href="{{ url_for('main.contacto') }}">Enviar Mensaje</a>
+
+
+<div class="ml-auto">
+    {% if current_user.is_authenticated %}
+
+        <span class="navbar-text mr-3">
+        Hola, <strong class="text-warning"> {{ current_user.username }}</strong>
+        </span>
+
+        <a href="{{ url_for('main.ver_mensajes') }}" class="btn btn-sm btn-info mr-2">Ver Mensajes</a>
+
+        <a href="{{ url_for('auth.logout') }}" class="btn btn-sm btn-outline-warning">Cerrar Sesión</a>
+    {% else %}
+        <a href="{{ url_for('auth.registro') }}" class="btn btn-sm btn-outline-light mr-2">Registro</a>
+
+        <a href="{{ url_for('auth.login') }}" class="btn btn-sm btn-success">Iniciar Sesión</a>
+    {% endif %}
+</div>
