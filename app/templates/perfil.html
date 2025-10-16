@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="mb-4 text-primary">Mi Perfil de Usuario</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-light">
+                    Datos del Perfil
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Usuario:</strong> {{ current_user.username }}</li>
+                    <li class="list-group-item">
+                        <strong>Nombre Completo:</strong>
+                        {{ current_user.nombre if current_user.nombre else '—' }}
+                    </li>
+                    <li class="list-group-item"><strong>Correo:</strong> {{ current_user.email }}</li>
+                    <li class="list-group-item">
+                        <strong>Fecha de Registro:</strong>
+                        {{ current_user.fecha_registro.strftime('%d/%m/%Y %H:%M') if current_user.fecha_registro else 'N/A' }}
+                    </li>
+                    <li class="list-group-item"><strong>Rol:</strong> {{ 'Administrador' if current_user.is_admin else 'Estándar' }}</li>
+                </ul>
+            </div>
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-light">
+                    Actualizar Nombre
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('auth.perfil') }}" novalidate>
+                        {{ perfil_form.hidden_tag() }}
+
+                        <div class="mb-3">
+                            {{ perfil_form.nombre.label(class="form-label") }}
+                            {{ perfil_form.nombre(class="form-control") }}
+                            {% for error in perfil_form.nombre.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+
+                        {{ perfil_form.submit(class="btn btn-primary") }}
+                    </form>
+                </div>
+            </div>
+
+            <a href="{{ url_for('auth.cambiar_contrasena') }}" class="btn btn-warning mt-3">
+                <i class="bi bi-key-fill"></i> Cambiar Contraseña
+            </a>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
