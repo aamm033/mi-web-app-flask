@@ -21,6 +21,8 @@ class Usuario(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(256))
     nombre = db.Column(db.String(100), nullable=True)
+    # 🟢 NUEVO CAMPO DE FECHA DE REGISTRO
+    fecha_registro = db.Column(db.DateTime, default=datetime.utcnow)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
