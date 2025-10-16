@@ -12,3 +12,6 @@ web_app_env/
 .env
 instance/
 *.sqlite
+
+#Antiguo proyecto
+old/
